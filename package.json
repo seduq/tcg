@@ -1,12 +1,11 @@
 {
-  "name": "monorepo-template",
+  "name": "tcg",
   "version": "0.0.0",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {},
   "devDependencies": {
-    "@tsconfig/node20": "^20.1.4",
     "typescript": "5.6.2"
   },
   "dependencies": {

@@ -1,11 +1,13 @@
 {
-  "name": "@monorepo-template/functions",
+  "name": "@tcg/functions",
   "version": "0.0.0",
   "dependencies": {
-    "@monorepo-template/core": "*",
+    "@tcg/core": "*",
     "sst": "*"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.137"
+    "@tsconfig/node20": "^20.1.4",
+    "@types/aws-lambda": "^8.10.137",
+    "typescript": "5.6.2"
   }
 }

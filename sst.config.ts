@@ -3,13 +3,18 @@
 export default $config({
   app(input) {
     return {
-      name: "monorepo-template",
+      providers: {
+        aws: {
+          profile: "seduq-dev"
+        }
+      },
+      name: "tcg",
       removal: input?.stage === "production" ? "retain" : "remove",
       home: "aws",
     };
   },
   async run() {
-    await import("./infra/storage");
+    const storage = await import("./infra/storage");
     const api = await import("./infra/api");
 
     return {
