@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { api } from "@tcg/www/trpc/react";
+import { api } from "@www/trpc/react";
 
 export function LatestPost() {
   const [latestPost] = api.post.getLatest.useSuspenseQuery();

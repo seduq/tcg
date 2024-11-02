@@ -1,18 +1,25 @@
-import { drizzle } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
+import { Resource } from "sst";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
+import * as posts from "./posts.sql"
 
-import { env } from "@tcg/www/env";
-import * as schema from "./schema";
+const client = new Pool({
+  user: Resource.Database.username,
+  password: Resource.Database.password,
+  database: Resource.Database.database,
+  host: Resource.Database.host,
+  port: Resource.Database.port,
+});
 
-/**
- * Cache the database connection in development. This avoids creating a new connection on every HMR
- * update.
- */
-const globalForDb = globalThis as unknown as {
-  conn: postgres.Sql | undefined;
-};
-
-const conn = globalForDb.conn ?? postgres(env.DATABASE_URL);
-if (env.NODE_ENV !== "production") globalForDb.conn = conn;
-
-export const db = drizzle(conn, { schema });
+export const db = drizzle(client, {
+  schema: { ...posts },
+  logger:
+    process.env.DRIZZLE_LOG === "true"
+      ? {
+        logQuery(query, params) {
+          console.log("query:", query);
+          console.log("params:", params);
+        },
+      }
+      : undefined,
+});

@@ -1,12 +1,16 @@
-import { type Config } from "drizzle-kit";
+import { defineConfig } from "drizzle-kit";
+import { Resource } from "sst";
 
-import { env } from "@tcg/www/env";
-
-export default {
-  schema: "./src/server/db/schema.ts",
+export default defineConfig({
   dialect: "postgresql",
   dbCredentials: {
-    url: env.DATABASE_URL,
+    ssl: "prefer",
+    user: Resource.Database.username,
+    password: Resource.Database.password,
+    host: Resource.Database.host,
+    port: Resource.Database.port,
+    database: Resource.Database.database,
   },
-  tablesFilter: ["www_*"],
-} satisfies Config;
+  schema: ["./src/**/*.sql.ts"],
+  out: "../../migrations",
+});

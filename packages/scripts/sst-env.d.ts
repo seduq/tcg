@@ -6,12 +6,23 @@ import "sst"
 export {}
 declare module "sst" {
   export interface Resource {
-    "MyApi": {
-      "name": string
-      "type": "sst.aws.Function"
+    "Database": {
+      "database": string
+      "host": string
+      "password": string
+      "port": number
+      "type": "sst.aws.Postgres"
+      "username": string
+    }
+    "EC2": {
+      "bastion": string
+      "type": "sst.aws.Vpc"
+    }
+    "Nextjs": {
+      "type": "sst.aws.Nextjs"
       "url": string
     }
-    "MyBucket": {
+    "S3": {
       "name": string
       "type": "sst.aws.Bucket"
     }

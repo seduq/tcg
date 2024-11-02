@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@tcg/core": "*",
-    "sst": "*"
+    "sst": "3.2.73"
   },
   "scripts": {
     "shell": "sst shell tsx"
