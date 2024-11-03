@@ -15,7 +15,6 @@ export default $config({
   },
   async run() {
     const storage = await import("./infra/storage");
-    //const api = await import("./infra/api");
     const vpc = await import("./infra/vpc");
     const postgres = await import("./infra/postgres");
     const www = await import("./infra/web");
@@ -23,13 +22,11 @@ export default $config({
       link: [postgres],
       dev: {
         autostart: true,
-        directory: "./packages/www",
-        command: "bun drizzle-kit studio",
+        command: "bun drizzle-kit studio --config packages/www/drizzle.config.ts",
       },
     });
 
     return {
-      //api: api.myApi.url,
       s3: storage.bucket.domain,
       www: www.www.url
     };

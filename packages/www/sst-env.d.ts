@@ -22,6 +22,14 @@ declare module "sst" {
       "type": "sst.aws.Nextjs"
       "url": string
     }
+    "NextjsDns": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
+    "NextjsDomain": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
     "S3": {
       "name": string
       "type": "sst.aws.Bucket"
