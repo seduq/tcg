@@ -2,7 +2,8 @@
   "name": "@tcg/core",
   "version": "0.0.0",
   "scripts": {
-    "test": "sst shell vitest"
+    "build": "tsc build",
+    "check": "tsc --noEmit"
   },
   "exports": {
     "./*": [
