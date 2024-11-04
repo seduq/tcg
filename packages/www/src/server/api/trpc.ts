@@ -2,7 +2,7 @@ import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-import { db } from "@www/server/db";
+import { db } from "@tcg/www/server/db";
 
 export const createTRPCContext = async (opts: { headers: Headers }) => {
   return {

@@ -18,13 +18,6 @@ export default $config({
     const vpc = await import("./infra/vpc");
     const postgres = await import("./infra/postgres");
     const www = await import("./infra/web");
-    new sst.x.DevCommand("Studio", {
-      link: [postgres],
-      dev: {
-        autostart: true,
-        command: "bun drizzle-kit studio --config packages/www/drizzle.config.ts",
-      },
-    });
 
     return {
       s3: storage.bucket.domain,

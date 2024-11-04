@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { LatestPost } from "@www/app/_components/post";
-import { api, HydrateClient } from "@www/trpc/server";
+import { LatestPost } from "@tcg/www/app/_components/post";
+import { api, HydrateClient } from "@tcg/www/trpc/server";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
