@@ -19,6 +19,14 @@ export default $config({
     const postgres = await import("./infra/postgres");
     const www = await import("./infra/web");
 
+    new sst.x.DevCommand("Prisma", {
+      environment: { DATABASE_URL: postgres.DATABASE_URL },
+      dev: {
+        autostart: false,
+        command: "npx prisma studio",
+      },
+    });
+
     return {
       s3: storage.bucket.domain,
       www: www.www.url

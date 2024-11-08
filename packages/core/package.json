@@ -2,8 +2,6 @@
   "name": "@tcg/core",
   "version": "0.0.0",
   "scripts": {
-    "build": "tsc build",
-    "check": "tsc --noEmit"
   },
   "exports": {
     "./*": [

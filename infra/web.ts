@@ -1,5 +1,4 @@
-import { Resource } from "sst";
-import { rds } from "./postgres";
+import { DATABASE_URL, rds } from "./postgres";
 import { bucket } from "./storage"
 import { vpc } from "./vpc";
 
@@ -9,6 +8,9 @@ const dnsZone = new sst.Secret("NextjsDns");
 export const www = new sst.aws.Nextjs("Nextjs", {
   path: "./packages/www",
   link: [rds, bucket, domain, dnsZone],
+  environment: {
+    DATABASE_URL
+  },
   vpc,
   domain: {
     dns: sst.aws.dns({
