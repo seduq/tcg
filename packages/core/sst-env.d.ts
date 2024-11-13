@@ -6,33 +6,5 @@ import "sst"
 export {}
 declare module "sst" {
   export interface Resource {
-    "Database": {
-      "database": string
-      "host": string
-      "password": string
-      "port": number
-      "type": "sst.aws.Postgres"
-      "username": string
-    }
-    "EC2": {
-      "bastion": string
-      "type": "sst.aws.Vpc"
-    }
-    "Nextjs": {
-      "type": "sst.aws.Nextjs"
-      "url": string
-    }
-    "NextjsDns": {
-      "type": "sst.sst.Secret"
-      "value": string
-    }
-    "NextjsDomain": {
-      "type": "sst.sst.Secret"
-      "value": string
-    }
-    "S3": {
-      "name": string
-      "type": "sst.aws.Bucket"
-    }
   }
 }
